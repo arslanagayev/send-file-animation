@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Send file button · UI animations</title>
+  <meta name="description" content="A send button that fills with upload progress, then launches a paper plane along a dashed trail.">
+  <link rel="stylesheet" href="reel/theme.css">
+  <link rel="stylesheet" href="reel/reel.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="demo-page">
+    <section class="share" data-state="idle" aria-labelledby="share-title">
+      <svg class="trail-layer" aria-hidden="true"><path class="trail"/></svg>
+      <div class="plane-layer" aria-hidden="true"></div>
+
+      <header class="share-head">
+        <div class="avatars" aria-hidden="true"><i>MK</i><i>JS</i><i>+3</i></div>
+        <div>
+          <h2 id="share-title">Share with <span>Design team</span></h2>
+          <p>5 people will get access</p>
+        </div>
+      </header>
+
+      <div class="attachment">
+        <span class="zip" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M10 6h1M10 9h1M10 12h1M10 15h1"/></svg>
+        </span>
+        <span class="att-meta">
+          <b>final-assets.zip</b>
+          <small><span class="att-status">18.4 MB · Ready to send</span></small>
+          <span class="att-bar" aria-hidden="true"><span></span></span>
+        </span>
+      </div>
+
+      <label class="note">
+        <span class="visually-hidden">Message</span>
+        <input type="text" value="Final exports for the launch 🚀" aria-label="Message">
+      </label>
+
+      <button class="send" type="button">
+        <span class="send-fill" aria-hidden="true"></span>
+        <span class="send-label">Send</span>
+        <svg class="send-plane" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 3L10 14"/><path d="M21 3l-7 18-4-7-7-4z"/></svg>
+      </button>
+
+      <p class="share-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <nav class="toolbar" aria-label="Demo links">
+    <a href="https://www.instagram.com/arslanagayev.dev/">More animations</a>
+    <a href="?reel">▶ Reel mode</a>
+    <a href="https://github.com/arslanagayev/send-file-animation">Source</a>
+  </nav>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
