@@ -1,19 +1,26 @@
-/* Shared look for every animation page: deep-space background, brand colours, demo layout. */
+/* Paper theme: sky-blue background, paper sheets with grain, ink outlines, highlighter yellow. */
 :root {
-  --bg: #05060f;
-  --bg-2: #0b0d24;
-  --violet: #7b5cff;
-  --cyan: #00e5ff;
-  --pink: #ff5ecb;
-  --green: #22e39a;
-  --red: #ff4d6d;
-  --text: #f2f3ff;
-  --muted: #9aa0c7;
-  --glass: rgb(255 255 255 / 0.06);
-  --glass-border: rgb(255 255 255 / 0.14);
-  --font: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
-  color-scheme: dark;
+  --sky: #d6ebff;
+  --sky-2: #a9d3ff;
+  --paper: #fffdf6;
+  --paper-2: #f6f1e4;
+  --ink: #1d2b4f;
+  --ink-soft: #5b6a8c;
+  --pen: #2f6bff;
+  --marker: #ffe45c;
+  --marker-green: #8ee6b0;
+  --green: #1f8f50;
+  --kraft: #e8c48a;
+  --text: var(--ink);
+  --muted: var(--ink-soft);
+  /* Wobbly "hand-drawn" corners and a hard offset shadow, like a sketch on paper. */
+  --sketch-radius: 255px 18px 225px 18px / 18px 225px 18px 255px;
+  --sketch-shadow: 5px 6px 0 var(--ink);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .28 0 0 0 0 .15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --font: "DM Sans", "Segoe UI", system-ui, sans-serif;
+  --hand: "Caveat", "Bradley Hand", cursive;
+  --mono: "Courier Prime", "Courier New", monospace;
+  color-scheme: light;
 }
 
 * { box-sizing: border-box; }
@@ -24,10 +31,9 @@ body {
   font-family: var(--font);
   color: var(--text);
   background:
-    radial-gradient(60vmax 40vmax at 12% 18%, rgb(123 92 255 / 0.28), transparent 60%),
-    radial-gradient(50vmax 40vmax at 88% 82%, rgb(0 229 255 / 0.16), transparent 60%),
-    radial-gradient(40vmax 30vmax at 75% 5%, rgb(255 94 203 / 0.12), transparent 60%),
-    linear-gradient(160deg, var(--bg-2), var(--bg) 65%);
+    radial-gradient(28vmax 12vmax at 18% 20%, rgb(255 255 255 / 0.9), transparent 70%),
+    radial-gradient(32vmax 13vmax at 82% 78%, rgb(255 255 255 / 0.8), transparent 70%),
+    linear-gradient(180deg, var(--sky-2), var(--sky) 70%);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -36,33 +42,34 @@ body {
   min-height: 100%;
   display: grid;
   place-items: center;
-  padding: 48px 16px 96px;
+  padding: 48px 16px 120px;
 }
 
 .toolbar {
   position: fixed;
   left: 50%;
-  bottom: 20px;
+  bottom: 22px;
   translate: -50% 0;
   display: flex;
-  gap: 8px;
+  gap: 4px;
   padding: 6px;
-  border-radius: 999px;
-  background: rgb(10 12 30 / 0.7);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(12px);
+  border: 2px solid var(--ink);
+  border-radius: var(--sketch-radius);
+  background: var(--grain), var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 .toolbar a {
   white-space: nowrap;
-  color: var(--text);
+  color: var(--ink);
   text-decoration: none;
   font-size: 13px;
+  font-weight: 700;
   padding: 8px 14px;
-  border-radius: 999px;
+  border-radius: 10px;
 }
 
-.toolbar a:hover, .toolbar a:focus-visible { background: rgb(255 255 255 / 0.08); outline: none; }
+.toolbar a:hover, .toolbar a:focus-visible { background: var(--marker); outline: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }

@@ -14,7 +14,7 @@ const trailSvg = card.querySelector('.trail-layer');
 const trail = trailSvg.querySelector('.trail');
 const planeLayer = card.querySelector('.plane-layer');
 
-// Mask that reveals the dotted trail as the plane flies (a solid stroke drawn with dashoffset).
+// Mask that reveals the dashed trail as the plane flies (a solid stroke drawn with dashoffset).
 trailSvg.insertAdjacentHTML('afterbegin',
   '<defs><mask id="trail-reveal" maskUnits="userSpaceOnUse"><path class="trail-mask" fill="none" stroke="#fff" stroke-width="6"/></mask></defs>');
 const trailMask = trailSvg.querySelector('.trail-mask');
@@ -126,7 +126,7 @@ mountReel({
   demoScale: 1.7,
   file: 'send-file-animation/script.js',
   code: `
-// One path drives both the dotted trail and the plane
+// One path drives both the dashed trail and the plane
 trail.setAttribute('d', path);
 plane.style.offsetPath = \`path('\${path}')\`;
 
